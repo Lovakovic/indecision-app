@@ -1,10 +1,17 @@
+"use strict";
+
 console.log("App.js is on and running.");
 
 // JSX - JavaScript XML
 
-let template = React.createElement("h1", {
-    id: "h1_id"
-  }, "This is JSX from app.js!");
-let appRoot = document.getElementById('app');
+var template = React.createElement(
+  "h1",
+  null,
+  "Indecision App"
+);
+var appRoot = document.getElementById("app");
 
 ReactDOM.render(template, appRoot);
+
+// How to compile on the run with babel?
+// babel [JSX file path] --out-file=[output file path] --presets=env,react --watch
