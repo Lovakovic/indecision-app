@@ -1,11 +1,48 @@
+// How to compile on the run with babel?
+// babel [JSX file path] --out-file=[output file path] --presets=env,react --watch
+
 console.log("App.js is on and running.");
 
 // JSX - JavaScript XML
 
-let template = <h1>Indecision App</h1>
-let appRoot = document.getElementById("app");
+const app = { 
+    title: 'Indecision App',
+    subtitle: 'Make your decisions faster.',
+    options: ['One', 'Two']
+};
 
-ReactDOM.render(template, appRoot);
+const template = (
+    <div>
+        <h1>{app.title}</h1>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+        <ol>
+            <li>Item one</li>
+            <li>Item two</li>
+        </ol>
+    </div>
+);
 
-// How to compile on the run with babel?
-// babel [JSX file path] --out-file=[output file path] --presets=env,react --watch
+let count = 0;
+
+const addOne = () => console.log('addOne');
+
+const minusOne = () => console.log('minusOne');
+
+const reset = () => console.log('reset');
+
+const templateTwo = (
+    <div>
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>reset</button>
+    </div>
+);
+
+console.log(templateTwo);
+
+const appRoot = document.getElementById("app");
+
+ReactDOM.render(templateTwo, appRoot);
+
