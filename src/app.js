@@ -1,48 +1,72 @@
 // How to compile on the run with babel?
 // babel [JSX file path] --out-file=[output file path] --presets=env,react --watch
 
-console.log("App.js is on and running.");
+console.log("App.js is on and running!");
 
 // JSX - JavaScript XML
 
 const app = { 
     title: 'Indecision App',
     subtitle: 'Make your decisions faster.',
-    options: ['One', 'Two']
+    options: []
 };
 
-const template = (
-    <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <p>{app.subtitle}</p>}
-        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-        <ol>
-            <li>Item one</li>
-            <li>Item two</li>
-        </ol>
-    </div>
-);
+const onFormSubmit = (e) => {
+    e.preventDefault();
 
-let count = 0;
+    const option = e.target.elements.option.value;
 
-const addOne = () => console.log('addOne');
+    if(option) {
+        app.options.push(option);
 
-const minusOne = () => console.log('minusOne');
+        e.target.elements.option.value = '';
 
-const reset = () => console.log('reset');
+        renderIndecisionApp();
+    }
+};
 
-const templateTwo = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
-        <button onClick={minusOne}>-1</button>
-        <button onClick={reset}>reset</button>
-    </div>
-);
+const onRemoveAll = (e) => {
+    app.options = [];
 
-console.log(templateTwo);
+    renderIndecisionApp();
+};
+
+const onMakeDecision = () => {
+    const randomNum =  Math.floor(Math.random() * app.options.length);
+
+    const option = app.options[randomNum];
+
+    alert(option);
+};
 
 const appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+const numbers = [15, 22, 45, 99];
 
+const renderIndecisionApp = () => {
+
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p>{app.subtitle}</p>}
+            <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
+            <button onClick={onRemoveAll}>Remove All</button>
+            <ol>
+            {
+                app.options.map((option) => {
+                    return <li key={option}>{option}</li>
+                })
+            }
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add option</button>
+            </form>
+        </div>
+    );
+
+    ReactDOM.render(template, appRoot);
+};
+
+renderIndecisionApp();
