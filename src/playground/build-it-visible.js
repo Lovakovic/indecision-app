@@ -1,4 +1,43 @@
-const appRoot = document.getElementById("app");
+class Visibility extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleVisibility = this.handleVisibility.bind(this);
+
+        this.state = {
+            visibilityToggled: false
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Visibility Toggle</h1>
+                <button onClick={this.handleVisibility}>
+                    {
+                        this.state.visibilityToggled ? 
+                            `Hide details` : `Show details`
+                    }
+                </button>
+                {
+                    this.state.visibilityToggled && <p>Meow!</p>
+                }
+            </div>
+        );
+    }
+
+    handleVisibility(event) {
+        this.setState((prevState) => {
+            return {
+                visibilityToggled: !prevState.visibilityToggled
+            };
+        }); 
+    }
+}
+
+ReactDOM.render(<Visibility />, document.getElementById('app'));
+
+/* const appRoot = document.getElementById("app");
 
 const app = {
     name: 'Visibility Toggle',
@@ -27,4 +66,4 @@ const renderVisibilityToggleApp = () => {
     ReactDOM.render(template, appRoot);
 };
 
-renderVisibilityToggleApp();
+renderVisibilityToggleApp(); */

@@ -1,2 +1,2 @@
-Last video completed:	03 - Hello React	--> 016 Build it Visibility Toggle
-Next video:		04 - React Components	--> 001 Section Intro React Components 
+Last video completed:	04 - React Components	--> 016 Indecision State Part II 
+Next video:		05 - Stateless Functional Components --> 001 Section Intro 
