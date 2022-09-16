@@ -1,2 +1,2 @@
-Last video completed:	04 - React Components	--> 016 Indecision State Part II 
-Next video:		05 - Stateless Functional Components --> 001 Section Intro 
+Last video completed:	05 - Stateless Functional Components --> 008 Saving and Loading the Cunt
+Next video:		06 - Webpack --> 001 Section Intro Webpack
