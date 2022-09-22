@@ -1,2 +1,0 @@
-Last video completed:	05 - Stateless Functional Components --> 008 Saving and Loading the Cunt
-Next video:		06 - Webpack --> 001 Section Intro Webpack
