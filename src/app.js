@@ -1,5 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import validator from 'validator';
 
-const template = React.createElement('p', {}, 'testing 32');
-ReactDOM.render(template, document.getElementById('app'));
+
+console.log(validator.isEmail('marko@markovic.hr'));
+
+const template = <p>Hello from webpack JSX!</p>;
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(template);
