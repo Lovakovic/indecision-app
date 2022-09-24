@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import validator from 'validator';
+import IndecisionApp from './components/IndecisionApp';
 
-
-console.log(validator.isEmail('marko@markovic.hr'));
-
-const template = <p>Hello from webpack JSX!</p>;
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(template);
+root.render(<IndecisionApp />)

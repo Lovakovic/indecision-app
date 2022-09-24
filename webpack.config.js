@@ -25,4 +25,5 @@ module.exports = {
         open: true,
         hot: true
     },
+    devtool: 'eval-cheap-module-source-map'
 };
