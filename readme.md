@@ -4,4 +4,4 @@
 
 **Course link:** https://www.udemy.com/course/react-2nd-edition/
 
-I will deploy and create separate repos for both projects in this course once they've been completed. 
+I will deploy the indecision app once I've fully completed the course.
