@@ -10,13 +10,14 @@ module.exports = {
         rules: [{
             test: /\.js$/,
             loader: 'babel-loader',
-            exclude: /node_modules/,
-           
-            /*  Try this syntax instead of loader: 'babel-loader'
-            use: {
-                loader: 'babel-loader'
-            } 
-            */
+            exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
         }]
     },
     devServer: {
